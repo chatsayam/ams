@@ -102,7 +102,8 @@ class AssetController extends Controller {
         $dataStock = $db->createCommand($sql)->queryAll();
         $i = 1;
         foreach ($dataStock AS $r) {
-            $manage = '<button type="button" data-id="' . $r['asset_id'] . '" class="data-id btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></button>';
+            $manage = '<button type="button" data-id="' . $r['asset_id'] . '" class="data-id btn btn-success">
+                <span class="glyphicon glyphicon-eye-open"></span></button>';
 
             echo '<tr> '
             . '<td> '
@@ -198,7 +199,8 @@ class AssetController extends Controller {
             if ($modelAsset->save()) {
                 //$attributes = array('file_spec' => $fnt3['file_spec_name'],'date_asset' => $dateNow);
                 //$dataAsset = TbAsset::model()->findByAttributes($attributes);
-                $sql = "SELECT * FROM tb_asset WHERE file_spec ='" . $fnt3['file_spec_name'] . "' AND date_asset = '" . $dateNow . "'";
+                $sql = "SELECT * FROM tb_asset WHERE file_spec ='" . $fnt3['file_spec_name'] . "' 
+                    AND date_asset = '" . $dateNow . "'";
                 //$dataAsset = TbAsset::model()->findBySql($sql);
                 $db = Yii::app()->db;
                 $dataAsset = $db->createCommand($sql)->queryAll();
@@ -243,7 +245,8 @@ class AssetController extends Controller {
                 $modelTran = new TbTransfer();
 
                 $db = Yii::app()->db;
-                $sql = "SELECT * FROM tb_stocks WHERE tb_asset_asset_id = '" . $Nfunc->getCookieData('assetID') . "' AND add_date = '" . $dateNowStock . "'";
+                $sql = "SELECT * FROM tb_stocks WHERE tb_asset_asset_id = '" . $Nfunc->getCookieData('assetID') . "' 
+                    AND add_date = '" . $dateNowStock . "'";
                 $dataStock = $db->createCommand($sql)->queryAll();
 
                 $dateNow = date('Y-m-d');
@@ -291,7 +294,8 @@ class AssetController extends Controller {
 
     public function actionOpenFilePDF() {
         if (isset($_GET)) {
-            echo '<object data="' . Yii::app()->baseUrl . '/Uploads/' . $_GET['fileData'] . '" type="application/pdf" width="100%" height="100%"></object>';
+            echo '<object data="' . Yii::app()->baseUrl . '/Uploads/' . $_GET['fileData'] . '" type="application/pdf" 
+                width="100%" height="100%"></object>';
         }
     }
 
@@ -371,7 +375,8 @@ class AssetController extends Controller {
             $modelAsset->invoice_date = $Nfunc->convertDateToSQL($stock['invoice_date']);
 
             if ($modelAsset->save()) {
-                $sql = "SELECT * FROM tb_asset WHERE tb_institution_institution_id ='" . $dataUser->tb_institution_institution_id . "' AND date_asset = '" . $dateNow . "'";
+                $sql = "SELECT * FROM tb_asset WHERE tb_institution_institution_id ='" . 
+                        $dataUser->tb_institution_institution_id . "' AND date_asset = '" . $dateNow . "'";
                 //$dataAsset = TbAsset::model()->findBySql($sql);
                 $db = Yii::app()->db;
                 $dataAsset = $db->createCommand($sql)->queryAll();
@@ -1025,7 +1030,8 @@ class AssetController extends Controller {
         $dataStock = $db->createCommand($sql)->queryAll();
         $i = 1;
         foreach ($dataStock AS $r) {
-            $manage = '<button type="button" data-assetID="' . $r['asset_id'] . '" data-stockID="' . $r['stock_id'] . '" class="data-id btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></button>';
+            $manage = '<button type="button" data-assetID="' . $r['asset_id'] . '" data-stockID="' . $r['stock_id'] 
+                    . '" class="data-id btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></button>';
 
             echo '<tr> '
             . '<td> '
