@@ -1,6 +1,10 @@
 <?php
 
 class AssetController extends Controller {
+    
+    public function show(){
+        echo 'chatsayam';
+    }
 
     public function actionManageRegister() {
 
