@@ -1,10 +1,6 @@
 <?php
 
 class AssetController extends Controller {
-    
-    public function show(){
-        echo 'hello';
-    }
 
     public function actionManageRegister() {
 
