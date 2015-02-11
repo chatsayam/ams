@@ -1,0 +1,75 @@
+ul.wysihtml5-toolbar {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+ul.wysihtml5-toolbar::after {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+ul.wysihtml5-toolbar > li {
+    float: left;
+    display: list-item;
+    list-style: none;
+    margin: 0 5px 10px 0;
+}
+
+ul.wysihtml5-toolbar a[data-wysihtml5-command=bold] {
+    font-weight: bold;
+}
+
+ul.wysihtml5-toolbar a[data-wysihtml5-command=italic] {
+    font-style: italic;
+}
+
+ul.wysihtml5-toolbar a[data-wysihtml5-command=underline] {
+    text-decoration: underline;
+}
+
+ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
+    background-image: none;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #E6E6E6;
+    background-color: #D9D9D9 9;
+    outline: 0;
+}
+
+ul.wysihtml5-commands-disabled .dropdown-menu {
+    display: none !important;
+}
+
+.my-menu{background-color: #222;}
+.container-main{margin-top: 70px;}
+.lesson-header{background-color: #9c2e2e;color:white}
+.lesson-body{margin-bottom: 70px;}
+.ng-touched.ng-invalid{border-color:#FC3;}
+.ng-dirty.ng-invalid{border-color:red;}
+.ng-dirty.ng-valid{border-color:green!important;}
+span.require{color:red}
+.help-block{color:red}
+.error{border-color:red}
+
+
+.uploadify-button  {
+    display: inline-block; /* กำหนดให้ขึ้นแถวใหม่ และ อยู่แถวเดิม */
+    padding: 1px 20px; /* ใช้กำหนดระยะห่างระหว่างขอบของวัตถุด้านใน กับ ข้อความที่อยู่ในกรอบ (ไม่เกี่ยวข้องกับวัตถุด้านนอก) 5px = ความห่างบนล่าง 20px = ความห่างซ้ายขวา */
+    margin-bottom: 0; /* ใช้กำหนดระยะห่างระหว่างขอบของวัตถุด้านล่าง กับวัตถุอื่นๆ */
+    font-size: 14px; /* กำหนดขนาดของ font */
+    font-weight: 500; /* ความหนาของตัวอักษร */
+    line-height: 1.428571429; /* ความสูงของรูปร่างลักษณะของสี่เหลี่ยม */
+    text-align: center; /* ลักษณะของ font กำหนดให้ฟ้อนอยู่ตรงกลางคือ center */
+    white-space: nowrap; /* ใช้กำหนดให้ขึ้นบรรทัดใหม่ หรือไม่ขึ้นบรรทัดใหม่ สำหรับข้อความที่เราพิมพ์ใน HTML " nowrap " คือปกติ " none " คือไม่ขึ้นบรรทัดใหม่ */
+    vertical-align: middle; /* ใช้กำหนดให้ ข้อความอยู่ระหว่างกึ่งกลางคือ middle นั่นเอง */
+    border-radius: 4px; /* ทำให้ขอบมีความโค้ง ขนาด 4 px */
+    text-decoration:none; /* ไม่แสดงเส้นใต้ */
+    color:#fff; /* สีของข้อความ */
+    background-color: #578DB1; /* สีของพื้นหลัง */
+    border-color: #3866DD; /* สีของขอบพื้นหลัง */
+}
+
+
