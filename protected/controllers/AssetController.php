@@ -118,7 +118,7 @@ class AssetController extends Controller {
             . '<td> '
             . $r['report_pd01_code']
             . '</td>'
-            . '<td> '
+            . '<td> ' 
             . $r['type_asset']
             . '</td>'
             . '<td> '
