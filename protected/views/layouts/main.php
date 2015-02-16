@@ -85,7 +85,13 @@
                         <ul class="account-area">
                             <li>
                                 <!--Messages Dropdown-->
-                                <?=$this->renderPartial('//layouts/Messages')?>
+                                <?php
+
+                                if(Yii::app()->user->id != NULL){
+
+                                    $this->renderPartial('//layouts/Messages');
+                                }
+                                ?>
                                 <!--/Messages Dropdown-->
                             </li>
                             <li>
@@ -132,7 +138,12 @@
         <!-- Page Container -->
         <div class="page-container">
             <!-- Page Sidebar -->
-            <div class="page-sidebar" id="sidebar">
+            <div class="page-sidebar <?php if(Yii::app()->user->id == NULL){ echo 'menu-compact'; } ?>" id="sidebar">
+        <?php
+
+            if(Yii::app()->user->id != NULL){
+        ?>
+            
                 <!-- Page Sidebar Header-->
                 <div class="sidebar-header-wrapper">
                     <input type="text" class="searchinput" />
@@ -140,9 +151,15 @@
                     <div class="searchhelper">ค้นหารายการสินทรัพย์ ด้วยรหัสหรือข้อมูลใดๆ ตามรายละเอียดสินทรัพย์</div>
                 </div>
                 <!-- /Page Sidebar Header -->
-                <?=$this->renderPartial('//layouts/Sidebar_Menu')?> <?php //on_login ?>
-            </div>
+                
+                <?=$this->renderPartial('//layouts/Sidebar_Menu')?>
+                 
+            
             <!-- /Page Sidebar -->
+        <?php
+            }
+        ?>
+            </div>
             <!-- Page Content -->
             <div class="page-content">
                 <?=$content?><!--render content yii-->
