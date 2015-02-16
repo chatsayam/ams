@@ -59,7 +59,4 @@ class UserIdentity extends CUserIdentity
             return $this->fullname_user;
         }
         
-        public function getInnt(){
-            
-        }
 }
