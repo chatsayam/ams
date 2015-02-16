@@ -6,25 +6,36 @@ $Nfunc = new NFunc();
 
 <div class="page-body" ng-controller="mainController">
 
-    <ul id="mytab" class="nav nav-tabs">
-        <li class="active">
-            <a href="#tabBudget" data-toggle="tab">การจัดซื้อ</a>
-        </li>
-        <li>
-            <a href="#tabPurchasing" data-toggle="tab">คุณสมบัติ</a>
-        </li>
-        <li>
-            <a href="#tabSeller" data-toggle="tab">ผู้ขาย</a>
-        </li>
-        <li>
-            <a href="#tabDetail" data-toggle="tab">ข้อมูลทั่วไป</a>
-        </li>
-        <li>
-            <a href="#tabRegiter" data-toggle="tab">รายงาน</a>
-        </li>
-
-    </ul>
-
+    <div class="wizard wizard-tabbed" data-target="#tabbedwizardsteps">
+        <ul id="mytab" >
+            <li class="active">
+                <span class="step">1</span>
+                <a href="#tabBudget" data-toggle="tab">การจัดซื้อ</a>
+                <span class="chevron"></span>
+            </li>
+            <li>
+                <span class="step">2</span>
+                <a href="#tabPurchasing" data-toggle="tab">คุณสมบัติ</a>
+                <span class="chevron"></span>
+            </li>
+            <li>
+                <span class="step">3</span>
+                <a href="#tabSeller" data-toggle="tab">ผู้ขาย</a>
+                <span class="chevron"></span>
+            </li>
+            <li>
+                <span class="step">4</span>
+                <a href="#tabDetail" data-toggle="tab">ข้อมูลทั่วไป</a>
+                <span class="chevron"></span>
+            </li>
+            <li>
+                <span class="step">5</span>
+                <a href="#tabRegiter" data-toggle="tab">รายงาน</a>
+                <span class="chevron"></span>
+            </li>
+                
+        </ul>
+    </div>
     <div class="tab-content" style="margin-top:20px;">
         <div class="tab-pane fade in active" id="tabBudget">
             <div class="row">
