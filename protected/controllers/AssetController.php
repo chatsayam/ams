@@ -398,16 +398,19 @@ class AssetController extends Controller {
     }
 
     public function actionSelectVendors() {
-        $db = Yii::app()->db;
-        $sql = "SELECT * FROM tb_vendors WHERE supply_code like '%" . $_POST['data'] . "%' ";
-        $sql .= "OR supply_gfmis like '%" . $_POST['data'] . "%' ";
-        $sql .= "OR supply like '%" . $_POST['data'] . "%' ";
-        $sql .= "GROUP BY vendors_id ORDER BY supply_code ";
-        $result = $db->createCommand($sql)->queryAll();
+        if ($_POST) {
+            $db = Yii::app()->db;
+            $sql = "SELECT * FROM tb_vendors WHERE supply_code like '%" . $_POST['sup'] . "%' ";
+            $sql .= "OR supply_gfmis like '%" . $_POST['sup'] . "%' ";
+            $sql .= "OR supply like '%" . $_POST['sup'] . "%' ";
+            $sql .= "GROUP BY vendors_id ORDER BY supply_code ";
+            $result = $db->createCommand($sql)->queryAll();
 
-        foreach ($result as $r) {
-            echo '<option value = "' . $r['supply_code'] . '">' . $r['supply'] . '</option>';
+            foreach ($result as $r) {
+                echo '<option value = "' . $r['supply_code'] . '">' . $r['supply'] . '</option>';
+            }
         }
+        
     }
 
     public function actionFilVendor() {
@@ -441,7 +444,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_pd01"]["tmp_name"], './Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_pd01"]["tmp_name"], './File_Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -458,7 +461,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_pd38"]["tmp_name"], './Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_pd38"]["tmp_name"], './File_Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -473,7 +476,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_spec"]["tmp_name"], './Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_spec"]["tmp_name"], './File_Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -488,7 +491,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_invoice"]["tmp_name"], './Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_invoice"]["tmp_name"], './File_Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";

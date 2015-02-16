@@ -32,7 +32,7 @@ class WebUser {
         }
     }
     
-    protected function loadUser($id = null) {
+    public function loadUser($id = null) {
         if($this->_model === null) {
             if($id !== null) {
                 $this->_model = TbUser::model()->findByPk($id);

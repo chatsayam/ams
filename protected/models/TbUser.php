@@ -131,4 +131,16 @@ class TbUser extends CActiveRecord
         public function validatePassword($password){
             return $this->passwords === hash('sha512', $password);
         }
+         
+        /*
+        public function validatePassword($password){
+            if($this->passwords === hash('sha512', $password)){
+                $Nfunc = new NFunc();
+                $Nfunc->setCookieData('inttID', (60*60*24), $this->tb_institution_institution_id);
+                return TRUE;
+            }else {
+                return FALSE;
+            }
+        }* 
+         */
 }

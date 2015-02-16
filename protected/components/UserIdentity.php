@@ -58,4 +58,8 @@ class UserIdentity extends CUserIdentity
         public function getName() {
             return $this->fullname_user;
         }
+        
+        public function getInnt(){
+            
+        }
 }
