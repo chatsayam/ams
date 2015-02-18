@@ -6,4 +6,5 @@ $Nfunc = new NFunc();
 
 <!-- Page Body -->
 <div class="page-body" ng-controller="mainController">
+    <?=$int_id?>
 </div>

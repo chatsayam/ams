@@ -84,6 +84,17 @@ class StockController extends Controller {
     }
     
     public function actionRequestStock(){
-        $this->render('//Stock/RequestStock');
+        
+        $load = new LoadData();
+        
+        $int_id = $load->loadInstitutionID();
+        
+        $db = Yii::app()->db;
+        $sql = "SELECT * FROM tb_asset WHERE tb_institution_institution_id = ".$int_id . "AND tb_status_status = 'ขอขึ้นทะเบียน'";
+        $data = $db->createCommand($sql)->queryAll();
+        
+        $this->render('//Stock/RequestStock',array(
+            'data' => $data
+        ));
     }
 }
