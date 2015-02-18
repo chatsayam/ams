@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Stock/RequestStock")?>">
                     <span class="menu-text">รายการคำขอขึ้นทะเบียน</span>
                 </a>
             </li>

@@ -82,5 +82,8 @@ class StockController extends Controller {
             echo 'noPDF';
         }
     }
-
+    
+    public function actionRequestStock(){
+        $this->render('//Stock/RequestStock');
+    }
 }
