@@ -89,11 +89,14 @@ class StockController extends Controller {
         
         $int_id = $load->loadInstitutionID();
         
+        $typeAsset = TbTypeAsset::model()->findAll();
+        
         $db = Yii::app()->db;
-        $sql = "SELECT * FROM tb_asset WHERE tb_institution_institution_id = ".$int_id . "AND tb_status_status = 'ขอขึ้นทะเบียน'";
+        $sql = "SELECT * FROM tb_asset WHERE tb_institution_institution_id = ".$int_id . " AND tb_status_status = 'ขอขึ้นทะเบียน'";
         $data = $db->createCommand($sql)->queryAll();
         
         $this->render('//Stock/RequestStock',array(
+            'typeAsset' => $typeAsset,
             'data' => $data
         ));
     }
