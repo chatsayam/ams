@@ -48,11 +48,12 @@ $Nfunc = new NFunc();
                                             <th style="width: 200px;">คำขอที่</th>
                                             <th style="width: 220px;">วันที่ขอขึ้นทะเบียน</th>
                                             <th style="width: 220px;">ที่ spec</th>
-                                            <th style="width: 250px;">รายงานความต้องการ</th>
+                                            <th style="width: 250px;">ที่รายงานความต้องการ</th>
                                             <th style="width: 200px;">ประเภท</th>
                                             <th style="width: 200px;">ลักษณะ</th>
-                                            <th style="width: 200px;">ราคา</th>
-                                            <th style="width: 100px;">จัดการ</th>
+                                            <th style="width: 200px;">ราคา : หน่วย</th>
+                                            <th style="width: 200px;">รายการแก้ไข</th>
+                                            <th style="width: 200px;">จัดการ</th>
                                         </tr>
                                     </thead>
                                     <tbody id="bodyDataTable">
@@ -64,12 +65,18 @@ $Nfunc = new NFunc();
                                             <td><?=$i?></td>
                                             <td><?=$r['register_code']?></td>
                                             <td><?= $Nfunc->getDateThaiBH ($Nfunc->convertSQLToDate( $r['date_asset'] ))?></td>
-                                            <td><?=$r['register_code']?></td>
-                                            <td><?=$r['register_code']?></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?=$r['specification_code']?></td>
+                                            <td><?=$r['report_pd01_code']?></td>
+                                            <td><?=$r['type_asset']?></td>
+                                            <td><?=$r['nature_asset']?></td>
+                                            <td><?= number_format($r['price_per'],2)?></td>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-success editListPro" data-id="<?=$r['asset_id']?>" title="แก้ไขคำขอ"><i class="glyphicon glyphicon-edit"></i></button>
+                                                <button type="button" class="btn btn-danger deleteListPro" data-id="<?=$r['asset_id']?>" title="ยกเลิกคำขอ"><i class="glyphicon glyphicon-remove"></i></button>
+                                            </td>
                                         </tr>
                                         <?php
                                                 $i++;

@@ -53,7 +53,8 @@ class StockController extends Controller {
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
                         . " AND tb_institution_institution_id = ".$int_id
                         . " AND tb_asset.tb_status_status = 'ขอขึ้นทะเบียน' "
-                        . "ORDER BY asset_id DESC";
+                        . "ORDER BY date_asset DESC";
+        
         $data = $db->createCommand($sql)->queryAll();
         
         $this->render('//Stock/RequestStock',array(
