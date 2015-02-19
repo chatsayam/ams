@@ -46,6 +46,7 @@ $Nfunc = new NFunc();
                                         <tr class="success">
                                             <th>ที่</th>
                                             <th style="width: 200px;">คำขอที่</th>
+                                            <th style="width: 220px;">วันที่ขอขึ้นทะเบียน</th>
                                             <th style="width: 220px;">ที่ spec</th>
                                             <th style="width: 250px;">รายงานความต้องการ</th>
                                             <th style="width: 200px;">ประเภท</th>
@@ -55,7 +56,25 @@ $Nfunc = new NFunc();
                                         </tr>
                                     </thead>
                                     <tbody id="bodyDataTable">
-
+                                        <?php
+                                            $i = 1;
+                                            foreach ($data AS $r){
+                                        ?>
+                                        <tr>
+                                            <td><?=$i?></td>
+                                            <td><?=$r['register_code']?></td>
+                                            <td><?= $Nfunc->getDateThaiBH ($Nfunc->convertSQLToDate( $r['date_asset'] ))?></td>
+                                            <td><?=$r['register_code']?></td>
+                                            <td><?=$r['register_code']?></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <?php
+                                                $i++;
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -52,11 +52,10 @@ class NFunc {
         return substr($tmpDate[2], 0, 2) . '/' . $tmpDate[1] . '/' . $tmpDate[0];
     }
 
-    function convertSQLToDateBC($date) {
+    function convertSQLToDateBH($date) {
         $tmpDate = explode("-", $date);
 
-        //return $tmpDate[2].'/'.$tmpDate[1].'/'.($tmpDate[0]-543);
-        return $tmpDate[2] . '/' . $tmpDate[1] . '/' . $tmpDate[0];
+        return substr($tmpDate[2], 0, 2) . '/' . $tmpDate[1] . '/' . ($tmpDate[0]+543);
     }
 
     function yearToBH($year) {

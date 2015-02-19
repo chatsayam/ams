@@ -2,6 +2,9 @@ var App = angular.module('myApp', []);
 
 App.controller('mainController', function ($scope, $http) {
     
+    
+    
+    
     $('#type_asset_id').change(function () {
         $.post('../Asset/ListNatureAsset', {
             id: $('#type_asset_id').val()
