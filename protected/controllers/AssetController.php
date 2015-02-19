@@ -152,7 +152,7 @@ class AssetController extends Controller {
             'typeCost' => $typeCost,
             'purchase' => $purchase,
             'typeAsset' => $typeAsset,
-            //'natureAsset' => $natureAsset,
+            //'natureAsset' => $natureAsset, //ลักษณะครุภัณฑ์
             'status' => $status
         ));
   
