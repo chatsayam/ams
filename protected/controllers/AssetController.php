@@ -444,7 +444,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_pd01"]["tmp_name"], './File_Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_pd01"]["tmp_name"], './Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -461,7 +461,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_pd38"]["tmp_name"], './File_Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_pd38"]["tmp_name"], './Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -476,7 +476,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_spec"]["tmp_name"], './File_Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_spec"]["tmp_name"], './Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
@@ -491,7 +491,7 @@ class AssetController extends Controller {
         $dot = explode('.', $file);
         if ($dot[1] == 'pdf' || $dot[1] == 'PDF' || $dot[1] == 'Pdf') {
             $name = sha1($dot[0] . date('Ymd,h:i:s')) . '.' . $dot[1];
-            if (move_uploaded_file($_FILES["file_invoice"]["tmp_name"], './File_Uploads/' . $name)) {
+            if (move_uploaded_file($_FILES["file_invoice"]["tmp_name"], './Uploads/' . $name)) {
                 echo $name;
             } else {
                 echo "noUpload";
