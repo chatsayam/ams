@@ -56,6 +56,16 @@ class LoadData {
         return $div->division;
         
     }
+    
+    public function loadTypeUser(){
+        $uid = Yii::app()->user->id;
+        
+        $webUser = new WebUser();
+        
+        $user = $webUser->loadUser($uid);
+        
+        return $user->user_types_id;
+    }
 
 
     public function loadUser(){

@@ -7,7 +7,6 @@ $Nfunc = new NFunc();
 <!-- Page Body -->
 <div class="page-body" ng-controller="mainController">
     <div role="tabpanel" class="tab-pane fade contentAsset in active" id="home" aria-labelledby="home-tab">
-                    <br>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

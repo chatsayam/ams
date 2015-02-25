@@ -1,0 +1,98 @@
+body,td,th {
+    font-family: AngsanaUPC;
+    font-size: 20px;
+    padding-left: 17px;
+    line-height: 25px;
+}
+body {
+    background-color: #FFFFFF;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.style1 {font-size: 20px}
+.style3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+.style4 {font-size: 30px}
+@media print{
+    .no-print{ display:none;}
+    #head, #foot{display:none }
+    .contentarea{ 
+        padding-right: 30px;
+    }
+}
+#apDiv2 {
+    position:absolute;
+    width:276px;
+    height:50px;
+    z-index:1;
+    overflow: visible;
+}
+.h1 {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #000000;
+}
+.h2 {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #000000;
+    line-height: 35px;
+}
+.ind1{
+    position:relative; 
+    left:420px;
+    font-size: 30px;
+}
+.ind2{
+    position:relative; 
+    left:170px;
+}
+.ind3{
+    position:relative; 
+    left:250px;
+}
+.ind4{
+    position:relative; 
+    left:60px;
+}
+.tpy{
+    position:relative; 
+    b:250px;
+}
+.unl {
+    text-decoration:underline
+}
+.buy {
+    font-size: 20px;
+    padding-left: 0px;
+}
+.buy2 {
+    font-size: 18px;
+    padding-left: 0px;
+}
+.htb59 {
+    font-size: 18px;
+    padding-left: 0px;
+}
+.style1 {
+    font-size: 18px;
+    padding-left: 0px;
+}
+.table1{
+    padding-left: 0px;
+}
+.table2{
+    empty-cells:show; 
+    border-collapse:collapse; 
+    border:1px solid #666666; 
+    font-size: 18px;
+}
+@media print{
+    .no-print{ display:none;}
+    #head, #foot{display:none }
+    .contentarea{ width:100%;}
+}

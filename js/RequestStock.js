@@ -3,7 +3,21 @@ var App = angular.module('myApp', []);
 App.controller('mainController', function ($scope, $http) {
     
     
+    $('#tb_nature_asset_nature_asset_id').change(function () {
+        $.post('./RequestStockList', {
+            na_id: $('#tb_nature_asset_nature_asset_id').val()
+        }, function (data) {
+            $('#bodyDataTable').html(data);
+        });
+    });
     
+    $('#type_asset_id').change(function () {
+        $.post('./RequestStockList', {
+            nt_id: $('#type_asset_id').val()
+        }, function (data) {
+            $('#bodyDataTable').html(data);
+        });
+    });
     
     $('#type_asset_id').change(function () {
         $.post('../Asset/ListNatureAsset', {

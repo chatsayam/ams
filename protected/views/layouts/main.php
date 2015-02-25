@@ -152,11 +152,26 @@
                 </div>
                 <!-- /Page Sidebar Header -->
                 
-                <?=$this->renderPartial('//layouts/Sidebar_Menu')?>
+                <?php 
+                    $loadMain = new LoadData();
+                    
+                    if($loadMain->loadTypeUser() == 2){
+                        $this->renderPartial('//layouts/Sidebar_Menu');
+                    }else if($loadMain->loadTypeUser() == 4){
+                        $this->renderPartial('//layouts/Sidebar_Menu_Level2');
+                    }
+                
+                ?>
                  
             
             <!-- /Page Sidebar -->
         <?php
+            }else {
+                if ($this->action->id == 'Index' || $this->action->id == 'index') {
+                    //echo $content;
+                }else {
+                    $this->redirect(Yii::app()->baseUrl.'/index.php/site/index'); 
+                }
             }
         ?>
             </div>
@@ -180,7 +195,20 @@
     <!--noom Scripts-->
     <script src="<?=Yii::app()->baseUrl?>/assets/layout/assets/js/noom-theme.js"></script>
     
-    
+    <?php
+    if(Yii::app()->user->id != NULL){
+        if($loadMain->loadTypeUser() == 2){
+    ?>
+    <script src="<?=Yii::app()->baseUrl?>/js/main-script2.js"></script>
+    <?php
+        }else if($loadMain->loadTypeUser() == 4){
+    ?>
+    <script src="<?=Yii::app()->baseUrl?>/js/main-script4.js"></script>
+    <?php
+        }
+    }
+        //echo $this->uniqueid;
+    ?>
 
 </body>
 <!--  /Body -->
