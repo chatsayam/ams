@@ -195,6 +195,8 @@
     <!--noom Scripts-->
     <script src="<?=Yii::app()->baseUrl?>/assets/layout/assets/js/noom-theme.js"></script>
     
+    <script src="<?=Yii::app()->baseUrl?>/assets/layout/assets/js/toastr/toastr.js"></script>
+    
     <?php
     if(Yii::app()->user->id != NULL){
         if($loadMain->loadTypeUser() == 2){
@@ -213,4 +215,3 @@
 </body>
 <!--  /Body -->
 </html>
-

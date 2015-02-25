@@ -1,6 +1,6 @@
 <a class="wave in dropdown-toggle" data-toggle="dropdown" title="รายการแจ้งเตือน" href="#">
     <i class="icon fa fa-envelope"></i>
-    <span class="badge">3</span>
+    <span class="badge" id="maessage-noti">0</span>
 </a>
 <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
     <li>

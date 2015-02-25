@@ -5,16 +5,13 @@
             <i class="fa fa-home"></i>
             <a href="<?=Yii::app()->createUrl("site/index")?>">หน้าหลัก</a>
         </li>
-        <li class="active">จัดการข้อมูล</li>
     </ul>
 </div>
 <!-- /Page Breadcrumb -->
 <!-- Page Header -->
 <div class="page-header position-relative">
     <div class="header-title">
-        <h1>
-            จัดการข้อมูล
-        </h1>
+        <h1></h1>
     </div>
     <!--Header Buttons-->
     <div class="header-buttons">
@@ -35,3 +32,6 @@
 <div class="page-body">
 </div>
 <!-- /Page Body -->
+
+<?php
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/NullController.js', CClientScript::POS_END);

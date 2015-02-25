@@ -48,8 +48,13 @@ class SiteController extends Controller {
             // display the login form
             $this->render('//site/login', array('model' => $model));
         }else {
-            $this->render('//site/index');
+            //$this->render('//site/index');
+            $this->redirect(Yii::app()->homeUrl.'/site/Home');
         }
+    }
+    
+    public function actionHome(){
+        $this->render('//site/index');
     }
 
     /**

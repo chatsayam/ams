@@ -571,7 +571,7 @@ $Nfunc = new NFunc();
 <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/fuelux/wizard/wizard-custom.js', CClientScript::POS_END); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/wysihtml5-0.3.0.js', CClientScript::POS_END); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/bootstrap/js/bootstrap-wysihtml5.js', CClientScript::POS_END); ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/toastr/toastr.js', CClientScript::POS_END); ?>
+
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/chosen.jquery.js', CClientScript::POS_END); ?>
 <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/Stock/addStock.js', CClientScript::POS_END); ?>
 <?php

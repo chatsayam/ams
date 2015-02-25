@@ -117,11 +117,11 @@ class StockController extends Controller {
     }
     
     public function actionNotificationType2(){
-        
+        echo 2;
     }
     
     public function actionNotificationType4(){
-        
+        echo 5;
     }
 
 
