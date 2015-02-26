@@ -117,11 +117,56 @@ class StockController extends Controller {
     }
     
     public function actionNotificationType2(){
-        echo 5;
+        echo 6;
     }
     
     public function actionNotificationType4(){
-        echo 7;
+        
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT COUNT(asset_id) AS c_num FROM tb_asset WHERE asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน'";
+        
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        echo $data[0]['c_num'];
+    }
+    
+    public function actionConMessage4(){
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT * FROM tb_asset,tb_institution,tb_division "
+                . "WHERE tb_division.division_id = tb_division_division_id "
+                . "AND tb_institution_institution_id = tb_institution.institution_id "
+                . "AND asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน' "
+                . "ORDER BY asset_id DESC "
+                . "LIMIT 0,3";
+        
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        foreach ($data AS $r){
+            echo '<li>';
+            echo '<a href="#">';
+            echo    '<div class="message">';
+            echo        '<span class="message-sender">';
+            echo            'ขอขึ้นทะเบียน';
+            echo        '</span>';
+            echo        '<span class="message-subject">';
+            echo            $r['institution'].'<br>'.$r['division'];
+            echo        '</span>';
+            echo    '</div>';
+            echo '</a>';
+            echo '</li>';
+        }
+        
+        echo '<li>';
+        echo    '<a href="#">';
+        echo        '<div class="message">';
+        echo            '<strong>แจ้งเตือนทั้งหมด</strong>';
+        echo        '</div>';
+        echo    '</a>';
+        echo '</li>';
     }
 
 

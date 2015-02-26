@@ -5,6 +5,47 @@
  */
 
 var noti = '0';
+var mes = '0';
+
+$('#clk-con-message').click(function(){
+    if(mes !== noti){
+        clkmessage();
+    }
+});
+
+function clkmessage(){
+    $.ajax({
+        url: '../Stock/ConMessage2',
+        success: function (response) {
+            $('#con-message').html(response);
+            mes = noti;
+        },
+        error: function () {
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}
+
+function Notification(){
+    $.ajax({
+            url: '../Stock/NotificationType2',
+            success: function (response) {
+                if (response !== noti) {
+                    $('#message-noti').html(response);
+                    noti = response;
+                }
+            },
+            error: function () {
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+}
+
+Notification();
 
 (function loopNotifications() {
     setTimeout(function () {
