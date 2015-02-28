@@ -264,11 +264,8 @@ class AssetController extends Controller {
     }
 
     public function actionShowListDataStock() {
-        $Nfunc = new NFunc;
-        if (!empty($Nfunc->getCookieData('assetID'))) {
-            //$attributes = array('tb_asset_asset_id' => $Nfunc->getCookieData('assetID'));
-            //$dataStock = TbStocks::model()->findAll();//findByAttributes($attributes);
-            //$dataStock = TbStocks::model()->findByAttributes($attributes);
+        $Nfunc = new NFunc();
+        if(isset($_COOKIE['assetID'])) {
 
             $db = Yii::app()->db;
             $sql = "SELECT * FROM tb_stocks WHERE tb_asset_asset_id = '" . $Nfunc->getCookieData('assetID') . "'";
@@ -300,7 +297,7 @@ class AssetController extends Controller {
     }
 
     public function actionShowListDataFile() {
-        $Nfunc = new NFunc;
+        $Nfunc = new NFunc();
 
         if (isset($_GET['assetID'])) {
             $Nfunc->setCookieData('assetID', (24 * 60 * 60), $_GET['assetID']);
@@ -310,7 +307,7 @@ class AssetController extends Controller {
             $Nfunc->setCookieData('assetID', (24 * 60 * 60), $_POST['assetID']);
         }
 
-        if (!empty($Nfunc->getCookieData('assetID'))) {
+        if (isset($_COOKIE['assetID'])) {
             $db = Yii::app()->db;
             $sql = "SELECT * FROM tb_asset WHERE asset_id = '" . $Nfunc->getCookieData('assetID') . "'";
             $dataFile = $db->createCommand($sql)->queryAll();
@@ -323,6 +320,7 @@ class AssetController extends Controller {
             }
         }
     }
+
 
     public function actionRegisterLow() {
 

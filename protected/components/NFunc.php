@@ -191,7 +191,11 @@ class NFunc {
     }
 
     function getCookieData($name) {
-        return Yii::app()->request->cookies[$name]->value;
+        if(isset($_COOKIE[$name])){
+            return Yii::app()->request->cookies[$name]->value;
+        }else {
+            return NULL;
+        }
     }
 
     function removeCookieData($name) {
