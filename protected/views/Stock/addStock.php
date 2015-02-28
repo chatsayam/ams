@@ -1,6 +1,6 @@
 <!-- Page Breadcrumb -->
 <?php
-$this->renderPartial("//Layouts/Breadcrumb", array('pageTitle' => 'ขึ้นทะเบียนสินทรัพย์'));
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'ขึ้นทะเบียนสินทรัพย์'));
 $Nfunc = new NFunc();
 ?>
 

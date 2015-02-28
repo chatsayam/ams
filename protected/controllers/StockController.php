@@ -36,7 +36,7 @@ class StockController extends Controller {
         
     }
 
-    public function actionRequestStock(){
+    public function actionRequestStock(){//RequestStock
         
         $load = new LoadData();
         
