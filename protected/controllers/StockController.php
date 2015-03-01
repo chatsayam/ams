@@ -178,7 +178,7 @@ class StockController extends Controller {
         $db = Yii::app()->db;
         
         //$sql = "SELECT COUNT(asset_id) AS c_num FROM tb_asset WHERE asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน'";
-        $sql = "SELECT COUNT(id) AS c_num FROM tb_approve_division WHERE app_status = '1'";
+        $sql = "SELECT COUNT(asset_id) AS c_num FROM tb_approve_division WHERE app_status = '1'";
         
         $data = $db->createCommand($sql)->queryAll();
         
@@ -188,7 +188,7 @@ class StockController extends Controller {
     public function actionConMessage4(){
         $db = Yii::app()->db;
         
-        $sql = "SELECT * FROM tb_asset,tb_institution,tb_division,tb_approve_division "
+        $sql = "SELECT *,tb_asset.asset_id AS a_id FROM tb_asset,tb_institution,tb_division,tb_approve_division "
                 . "WHERE tb_division.division_id = tb_division_division_id "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND asset = 1 "
@@ -203,7 +203,7 @@ class StockController extends Controller {
         
         foreach ($data AS $r){
             echo '<li>';
-            echo '<a href="#">';
+            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApprovePD?assetID='.$r['a_id'].'">';
             echo    '<div class="message">';
             echo        '<span class="message-sender">';
             echo            'ขอขึ้นทะเบียน';
@@ -231,11 +231,20 @@ class StockController extends Controller {
         
         $db = Yii::app()->db;
         
+        /*
         $sql = "SELECT COUNT(tb_asset.asset_id) AS c_num FROM tb_asset,tb_institution,tb_division "
                 . "WHERE asset = 1 "
                 . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND tb_division.division_id = tb_division_division_id "
+                . "AND tb_division.division_id =" . $load->loadDivisionID() . " ";
+         * 
+         */
+        
+        $sql = "SELECT COUNT(raw_id) AS c_num FROM tb_asset_raw,tb_division,tb_institution "
+                . "WHERE raw_int_id = tb_institution.institution_id "
+                . "AND tb_division.division_id = tb_division_division_id "
+                . "AND raw_status = 1 "
                 . "AND tb_division.division_id =" . $load->loadDivisionID() . " ";
         
         $data = $db->createCommand($sql)->queryAll();
@@ -315,11 +324,60 @@ class StockController extends Controller {
             $model->int_id = $load->loadInstitutionID();
             $model->app_status = '1';
             
+            
             if($model->save()){
+                
+                $modelRaw = TbAssetRaw::model()->findByPk($assetID);
+                $modelRaw->raw_status = '2';
+                
+                $modelRaw->save();
+                
                 echo '1';
             }else {
                 echo 0;
             }
         }
+    }
+    
+    public function actionApprovePD(){
+        if($_GET){
+            $Nfunc = new NFunc();
+            
+            $assetID = $_GET['assetID'];
+            
+            $Nfunc->setCookieData('assetID', (60*60*24), $assetID);
+            
+            $this->render('//Stock/ApprovePD');
+        }
+    }
+    
+    public function actionApprovePDSuccess(){
+        if(isset($_COOKIE['assetID'])){
+            $Nfunc = new NFunc();
+            $load = new LoadData();
+            
+            $assetID = $Nfunc->getCookieData('assetID');
+            
+            $model = TbApproveDivision::model()->findByPk($assetID);
+            
+            $model->app_status = '2';
+            
+            
+            if($model->save()){
+                
+                $modelRaw = TbAssetRaw::model()->findByPk($assetID);
+                $modelRaw->raw_status = '3';
+                
+                $modelRaw->save();
+                
+                echo '1';
+            }else {
+                echo 0;
+            }
+        }
+    }
+    
+    public function actionShowIDStockApprove(){
+        
     }
 }

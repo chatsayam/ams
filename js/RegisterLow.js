@@ -144,15 +144,19 @@ App.controller('mainController', function ($scope, $http) {
             $('#bNext').addClass('btn-info');
             $('#bNext').text('เสร็จสิ้น');
         } else if (idAreaActive2 === 'tabRegiter') {
-            if(confirm('ยืนยันการบันทึกข้อมูล')){
-                $('#bNext').removeClass('btn-info');
-                $('#bNext').addClass('btn-success');
-                $('#bNext').text('จบ');
-                $('#bPrevious').hide();
-                $('#mytab .active').next().find('a').tab('show');
-                
-                saveRegisterLow();
-                
+            if($('#asset_code').val() !== ''){
+                if(confirm('ยืนยันการบันทึกข้อมูล')){
+                    $('#bNext').removeClass('btn-info');
+                    $('#bNext').addClass('btn-success');
+                    $('#bNext').text('จบ');
+                    $('#bPrevious').hide();
+                    $('#mytab .active').next().find('a').tab('show');
+
+                    saveRegisterLow();
+
+                }
+            }else {
+                alert('กรุณากดรับรหัสครุภัณฑ์ ด้วยครับ');
             }
                 
         }

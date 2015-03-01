@@ -207,29 +207,28 @@ class AssetController extends Controller {
             $modelAsset->tb_institution_institution_id = $dataUser->tb_institution_institution_id;
 
             if ($modelAsset->save()) {
-                //$attributes = array('file_spec' => $fnt3['file_spec_name'],'date_asset' => $dateNow);
-                //$dataAsset = TbAsset::model()->findByAttributes($attributes);
+                
                 $sql = "SELECT * FROM tb_asset WHERE file_spec ='" . $fnt3['file_spec_name'] . "' 
                     AND date_asset = '" . $dateNow . "'";
                 //$dataAsset = TbAsset::model()->findBySql($sql);
                 $db = Yii::app()->db;
                 $dataAsset = $db->createCommand($sql)->queryAll();
                 $Nfunc->setCookieData('assetID', (24 * 60 * 60), $dataAsset[0]['asset_id']);
+                
+                $modelraw = new TbAssetRaw();
+                
+                $modelraw->raw_id = $dataAsset[0]['asset_id'];
+                $modelraw->raw_int_id = $dataUser->tb_institution_institution_id;
+                $modelraw->raw_status = '1';
+                
+                $modelraw->save();
+                
                 $Nfunc->setCookieData('regis_code', (24 * 60 * 60), $stock['register_code']);
                 $Nfunc->setCookieData('institution_id', (24 * 60 * 60), $dataUser->tb_institution_institution_id);
 
                 echo '1';
             } else {
                 echo 'none';
-                /* echo $modelAsset->tb_get_asset_get_asset_id.',';
-                  echo $modelAsset->tb_institution_institution_id.',';
-                  echo $modelAsset->tb_purchase_purchase_id.',';
-                  echo $modelAsset->tb_vendors_vendors_id.',';
-                  echo $modelAsset->tb_status_status.',';
-                  echo $modelAsset->tb_type_cost_type_cost_id.',';
-                  echo $modelAsset->tb_nature_asset_nature_asset_id.',';
-                 * 
-                 */
             }
         }
         //phpinfo();
