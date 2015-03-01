@@ -33,7 +33,12 @@
             </li>
         </ul>
     </li>
-
+    <li>
+        <a href="profile.html">
+            <i class="menu-icon fa fa-envelope-o"></i>
+            <span class="menu-text"> รายการแจ้งเตือน </span>
+        </a>
+    </li>
     <li>
         <a href="#" class="menu-dropdown">
             <i class="menu-icon fa fa-table"></i>

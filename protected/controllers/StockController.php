@@ -191,7 +191,8 @@ class StockController extends Controller {
         $sql = "SELECT * FROM tb_asset,tb_institution,tb_division "
                 . "WHERE tb_division.division_id = tb_division_division_id "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
-                . "AND asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน' "
+                . "AND asset = 1 "
+                . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
                 . "ORDER BY asset_id DESC "
                 . "LIMIT 0,3";
         
@@ -241,12 +242,17 @@ class StockController extends Controller {
     }
     
     public function actionConMessage3(){
+        
+        $load = new LoadData();
+        
         $db = Yii::app()->db;
         
         $sql = "SELECT * FROM tb_asset,tb_institution,tb_division "
                 . "WHERE tb_division.division_id = tb_division_division_id "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
-                . "AND asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน' "
+                . "AND asset = 1 "
+                . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
+                . "AND tb_division.division_id =" . $load->loadDivisionID() . " "
                 . "ORDER BY asset_id DESC "
                 . "LIMIT 0,3";
         
