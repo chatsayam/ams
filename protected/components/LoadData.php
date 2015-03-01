@@ -57,6 +57,21 @@ class LoadData {
         
     }
     
+    public function loadDivisionID($uid = NULL){
+        if($uid === NULL){
+            $uid = Yii::app()->user->id;
+        }
+        
+        $webUser = new WebUser();
+        
+        $user = $webUser->loadUser($uid);
+        
+        $ins = TbInstitution::model()->findByPk($user->tb_institution_institution_id);
+        
+        return $ins->tb_division_division_id;
+        
+    }
+    
     public function loadTypeUser(){
         $uid = Yii::app()->user->id;
         

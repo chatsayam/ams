@@ -159,6 +159,8 @@
                         $this->renderPartial('//layouts/Sidebar_Menu');
                     }else if($loadMain->loadTypeUser() == 4){
                         $this->renderPartial('//layouts/Sidebar_Menu_Level2');
+                    }else if($loadMain->loadTypeUser() == 3){
+                        $this->renderPartial('//layouts/Sidebar_Menu_Level3');
                     }
                 
                 ?>
@@ -206,6 +208,10 @@
         }else if($loadMain->loadTypeUser() == 4){
     ?>
     <script src="<?=Yii::app()->baseUrl?>/js/main-script4.js"></script>
+    <?php
+        }else if($loadMain->loadTypeUser() == 3){
+    ?>
+    <script src="<?=Yii::app()->baseUrl?>/js/main-script3.js"></script>
     <?php
         }
     }
