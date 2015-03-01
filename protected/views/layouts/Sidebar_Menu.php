@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a  href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a  href="<?=Yii::app()->createUrl("Asset/ShowListStock")?>">
                     <span class="menu-text">รายการสินทรัพย์</span>
                 </a>
             </li>

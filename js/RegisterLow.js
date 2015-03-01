@@ -11,6 +11,14 @@ var App = angular.module('myApp', []);
 
 App.controller('mainController', function ($scope, $http) {
     
+    function addkey(){
+        $.post('./KeyRunAssetLow',{},function(data){
+            $('#register_code').val(data);
+            //$('#register_code').removeAttr('ng-invalid');
+        });
+    }
+    
+    addkey();
     
     $scope.openReport = function () {
         window.open("./ReportPD591", "myWindow", "status = 1, height = 650, width = 1024, resizable = 0");
@@ -113,7 +121,8 @@ App.controller('mainController', function ($scope, $http) {
         $.post('./SaveRegisterLow', {
             data: $scope.st,
             fp: $scope.fp,
-            a_id : $('#asset_code').val()
+            a_id : $('#asset_code').val(),
+            key : $('#register_code').val()
         }, function (data) {
             
         });

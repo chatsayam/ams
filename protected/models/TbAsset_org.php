@@ -45,7 +45,6 @@
  * @property string $tb_status_status
  *
  * The followings are the available model relations:
- * @property Comment[] $comments
  * @property TbGetAsset $tbGetAssetGetAsset
  * @property TbInstitution $tbInstitutionInstitution
  * @property TbNatureAsset $tbNatureAssetNatureAsset
@@ -76,9 +75,8 @@ class TbAsset extends CActiveRecord
 			array('tb_nature_asset_nature_asset_id, tb_purchase_purchase_id, tb_vendors_vendors_id, tb_type_cost_type_cost_id, tb_get_asset_get_asset_id, tb_institution_institution_id, tb_status_status', 'required'),
 			array('asset, tb_nature_asset_nature_asset_id, tb_purchase_purchase_id, tb_vendors_vendors_id, tb_type_cost_type_cost_id, tb_get_asset_get_asset_id, tb_institution_institution_id', 'numerical', 'integerOnly'=>true),
 			array('register_code, report_pd01_code, made_in, call_unit, source_cost_code, budget_code, activity_code, sub_activity_code, specification_code, invoice_code, contract_code', 'length', 'max'=>45),
-			array('year_cost, amount', 'length', 'max'=>4),
+			array('year_cost, warrenty, amount', 'length', 'max'=>4),
 			array('lifetime', 'length', 'max'=>6),
-			array('warrenty', 'length', 'max'=>40),
 			array('brand, version, file_spec, file_invoice, file_pd01, file_pd38, tb_status_status', 'length', 'max'=>100),
 			array('orther_asset', 'length', 'max'=>300),
 			array('price_per', 'length', 'max'=>15),
@@ -97,7 +95,6 @@ class TbAsset extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'comments' => array(self::HAS_MANY, 'Comment', 'tb_asset_asset_id'),
 			'tbGetAssetGetAsset' => array(self::BELONGS_TO, 'TbGetAsset', 'tb_get_asset_get_asset_id'),
 			'tbInstitutionInstitution' => array(self::BELONGS_TO, 'TbInstitution', 'tb_institution_institution_id'),
 			'tbNatureAssetNatureAsset' => array(self::BELONGS_TO, 'TbNatureAsset', 'tb_nature_asset_nature_asset_id'),

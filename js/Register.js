@@ -11,6 +11,15 @@ var tdata;
 var App = angular.module('myApp', []);
 
 App.controller('mainController', function ($scope, $http) {
+    
+    function addkey(){
+        $.post('./KeyRunAsset',{},function(data){
+            $('#register_code').val(data);
+            //$('#register_code').removeAttr('ng-invalid');
+        });
+    }
+    
+    addkey();
 
     $scope.st = '';
 
@@ -343,7 +352,8 @@ App.controller('mainController', function ($scope, $http) {
                 fm: fm,
                 fn: fn,
                 fo: fo,
-                fp: fp
+                fp: fp,
+                key : $('#register_code').val()
             }
         }).done(function (data) {
             //console.log(data);

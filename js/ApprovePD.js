@@ -33,7 +33,10 @@ App.controller('mainController', function ($scope, $http) {
                     //window.location.href = '../';
                     
                     $http.get('./ShowIDStockApprove').success(function (data) {
+                        $('#showDataIDApprove').html(data);
                         $('.bs-example-modal-lgPD').modal('show');
+                        $('#id_warning').attr('disabled',true);
+                        $('#id_saccess').attr('disabled',true);
                     });
                 }else {
                     alert('การอนุมัติคำขอประสบปัญญา กรุณาลองใหม่ในภายหลัง');

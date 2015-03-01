@@ -170,7 +170,62 @@ class StockController extends Controller {
     }
     
     public function actionNotificationType2(){
-        echo 0;
+        $load = new LoadData();
+        
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT COUNT(raw_id) AS c_num FROM tb_asset_raw,tb_division,tb_institution "
+                . "WHERE raw_int_id = tb_institution.institution_id "
+                . "AND tb_division.division_id = tb_division_division_id "
+                . "AND raw_status = 3 "
+                . "AND tb_institution.institution_id =" . $load->loadInstitutionID() . " ";
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        echo $data[0]['c_num'];
+    }
+    
+    public function actionConMessage2(){
+        
+        $load = new LoadData();
+        
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT *,tb_asset.asset_id AS a_id FROM tb_asset,tb_nature_asset,tb_type_asset "
+                . "WHERE tb_division.division_id = tb_division_division_id "
+                . "AND tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
+                . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
+                . "AND asset = 1 "
+                . "AND tb_status_status = 'ขึ้นทะเบียนสำเร็จ' "
+                . "AND tb_institution_institution_id =" . $load->loadInstitutionID() . " "
+                . "ORDER BY date_asset DESC "
+                . "LIMIT 0,3";
+        
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        foreach ($data AS $r){
+            echo '<li>';
+            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApproveDivision?assetID='.$r['a_id'].'">';
+            echo    '<div class="message">';
+            echo        '<span class="message-sender">';
+            echo            'ขึ้นทะเบียนสำเร็จ';
+            echo        '</span>';
+            echo        '<span class="message-subject">';
+            echo            $r['nature_asset'].'<br>'.$r['type_asset'];
+            echo        '</span>';
+            echo    '</div>';
+            echo '</a>';
+            echo '</li>';
+        }
+        
+        echo '<li>';
+        echo    '<a href="#">';
+        echo        '<div class="message">';
+        echo            '<strong>แจ้งเตือนทั้งหมด</strong>';
+        echo        '</div>';
+        echo    '</a>';
+        echo '</li>';
     }
     
     public function actionNotificationType4(){
@@ -365,6 +420,8 @@ class StockController extends Controller {
             
             if($model->save()){
                 
+                $this->GenIDStock($assetID);
+                
                 $modelRaw = TbAssetRaw::model()->findByPk($assetID);
                 $modelRaw->raw_status = '3';
                 
@@ -377,7 +434,63 @@ class StockController extends Controller {
         }
     }
     
-    public function actionShowIDStockApprove(){
+    public function GenIDStock($aid = NULL){
+        $model = TbAsset::model()->findByPk($aid);
         
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT * FROM tb_stocks WHERE tb_asset_asset_id = ".$aid;
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        $AMS = new AMS();
+        
+        $nt = TbNatureAsset::model()->findByPk($model->tb_nature_asset_nature_asset_id);
+        
+        foreach ($data AS $r){
+            $id = $AMS->createAssetID($nt->tb_type_asset_type_asset_id, $model->year_cost);
+            
+            $stock = TbStocks::model()->findByPk($r['stock_id']);
+            
+            $stock->asset_code = $id;
+            $stock->save();
+        }
+        
+        $dateNow = date('Y-m-d h:i:s');
+
+        $model->date_asset = $dateNow;
+        $model->tb_status_status = 'ขึ้นทะเบียนสำเร็จ';
+        
+        $model->save();
+    }
+
+
+    public function actionShowIDStockApprove(){
+        if(isset($_COOKIE['assetID'])){
+            $Nfunc = new NFunc();
+            
+            $assetID = $Nfunc->getCookieData('assetID');
+            
+            $sql = "SELECT * FROM tb_stocks WHERE tb_asset_asset_id = ".$assetID;
+            
+            $db = Yii::app()->db;
+        
+            $data = $db->createCommand($sql)->queryAll();
+
+            //echo json_encode($data);
+            
+            $i = 1;
+            
+            foreach ($data AS $r){
+                echo '<tr>';
+                echo    '<td>'.$i.'</td>';
+                echo    '<td>'.$r['machine_code'].'</td>';
+                echo    '<td>'.$r['asset_code'].'</td>';
+                echo    '<td>'.$r['tb_status_status'].'</td>';
+                echo '</tr>';
+                
+                $i++;
+            }
+        }
     }
 }

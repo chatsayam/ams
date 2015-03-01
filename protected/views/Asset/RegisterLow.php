@@ -42,7 +42,7 @@ $Nfunc = new NFunc();
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label" for="register_code">ที่เอกสาร</label>
-                        <input ng-model="st.register_code" class="form-control" type="text" required="true" name="register_code" id="register_code">
+                        <input ng-model="st.register_code" class="form-control" type="text" disabled="true" name="register_code" id="register_code">
                     </div>
                 </div>
                 <div class="col-md-3">

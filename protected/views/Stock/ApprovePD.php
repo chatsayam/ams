@@ -11,8 +11,8 @@ $Nfunc = new NFunc();
             <button id="vReport" ng-click="openReport()" class="btn btn-info" name="yt0" type="button"><span class="glyphicon glyphicon-eye-open"></span> เรียกดู</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-info" ng-click="exportPDF()" type="button"><span class="glyphicon glyphicon-file"></span> ส่งออก PDF</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-info" ng-click="showDetail()" data-toggle="modal" data-target=".bs-example-modal-lg" type="button"><span class="glyphicon glyphicon-list-alt"></span> รายละเอียดเพิ่มเติม</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-warning" ng-click="warning()" type="button"><span class="glyphicon glyphicon-pencil"></span> ตอบกลับข้อมูล</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-success" ng-click="success()" type="button"><span class="glyphicon glyphicon-check"></span> คลิกเพื่ออนุมัติ</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-warning" ng-click="warning()" id="id_warning" type="button"><span class="glyphicon glyphicon-pencil"></span> ตอบกลับข้อมูล</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-success" ng-click="success()" id="id_saccess" type="button"><span class="glyphicon glyphicon-check"></span> คลิกเพื่ออนุมัติ</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
     <hr>
@@ -74,7 +74,18 @@ $Nfunc = new NFunc();
                     <h4 class="modal-title" id="myModalLabel">อนุมัติคำขอขึ้นทะเบียน</h4>
                 </div>
                 <div class="modal-body" id="showListDetail">
-                    ...
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="success">
+                                <th>ลำดับ</th>
+                                <th>หมายเลขเครื่อง</th>
+                                <th>รหัสครุภัณฑ์</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody id='showDataIDApprove'>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>

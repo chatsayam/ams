@@ -177,6 +177,7 @@ class AssetController extends Controller {
             $fnt3 = $_POST['fn'];
             $fot4 = $_POST['fo'];
             $vandor = $_POST['fp'];
+            $key = $_POST['key'];
 
             $Nfunc = new NFunc();
 
@@ -197,6 +198,8 @@ class AssetController extends Controller {
             $modelAsset->invoice_date = $Nfunc->convertDateToSQL($stock['invoice_date']);
             $modelAsset->contract_date = $Nfunc->convertDateToSQL($stock['contract_date']);
             $modelAsset->tb_status_status = 'ขอขึ้นทะเบียน';
+            
+            $modelAsset->register_code = $key;
 
             $dateNow = date('Y-m-d h:i:s');
 
@@ -359,6 +362,7 @@ class AssetController extends Controller {
             $stock = $_POST['data'];
             $vandor = $_POST['fp'];
             $asset_code = $_POST['a_id'];
+            $key = $_POST['key'];
 
             $Nfunc = new NFunc();
 
@@ -374,6 +378,8 @@ class AssetController extends Controller {
             $modelAsset->date_asset = $dateNow;
             $modelAsset->tb_status_status = 'ขึ้นทะเบียนสำเร็จ';
             $modelAsset->asset = 2;
+            
+            $modelAsset->register_code = $key;
 
             $modelStock->add_date = $dateNow;
             
@@ -1086,6 +1092,43 @@ class AssetController extends Controller {
         $model->tb_status_status = $state;
 
         $model->save();
+    }
+    
+    public function actionKeyRunAsset(){
+        $model = new TbRunNumber();
+        
+        $y = date('Y')+543;
+        
+        $model->year_run = $y;
+        
+        $model->save();
+        
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT MAX(id_run) AS idrun FROM tb_run_number";
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        echo $data[0]['idrun'].'/'.$y;
+        
+    }
+    
+    public function actionKeyRunAssetLow(){
+        $model = new TbRunNumberLow();
+        
+        $y = date('Y')+543;
+        
+        $model->year_run = $y;
+        
+        $model->save();
+        
+        $db = Yii::app()->db;
+        
+        $sql = "SELECT MAX(run_id) AS idrun FROM tb_run_number_low";
+        
+        $data = $db->createCommand($sql)->queryAll();
+        
+        echo $data[0]['idrun'].'/'.$y;
     }
 
 }

@@ -53,7 +53,7 @@ $Nfunc = new NFunc();
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label" for="register_code">เลขที่คำขอขึ้นทะเบียน</label>
-                        <input ng-model="st.register_code" ng-change="addLocalStorage()" class="form-control" type="text" required="true" name="register_code" id="register_code">
+                        <input ng-model="st.register_code" ng-change="addLocalStorage()" class="form-control" type="text" disabled="true" name="register_code" id="register_code">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -287,7 +287,7 @@ $Nfunc = new NFunc();
                 <div class="col-md-2">
                     <div class="form-group">
                         <label class="control-label" for="warrenty">อายุการรับประกัน</label>
-                        <input ng-model="st.warrenty" ng-change="addLocalStorage()" class="form-control" type="number" required="true" name="warrenty" id="warrenty">
+                        <input ng-model="st.warrenty" ng-change="addLocalStorage()" class="form-control" type="text" required="true" name="warrenty" id="warrenty">
                     </div>
                 </div>
                 <div class="col-md-4">
