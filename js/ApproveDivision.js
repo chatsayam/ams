@@ -21,8 +21,21 @@ App.controller('mainController', function ($scope, $http) {
         window.open('./../Asset/ReportOnePagePD44TOPDF');
     };
     
-    $scope.warning = function(){
+    $scope.warning = function () {
         
+    };
+    
+    $scope.success = function () {
+        if(confirm('ยืนยันการอนุมัติคำขอขึ้นทะเบียน')){
+            $http.get('./ApproveDivisionSuccess').success(function (data) {
+                if(data === '1'){
+                    alert('อนุมัติคำขอขึ้นทะเบียนเรียบร้อยแล้ว');
+                    window.location.href = '../';
+                }else {
+                    alert('การอนุมัติคำขอประสบปัญญา กรุณาลองใหม่ในภายหลัง');
+               }
+            });
+        }
     };
 
     $('#showDataFile').on('click', '.dataFile', function () {

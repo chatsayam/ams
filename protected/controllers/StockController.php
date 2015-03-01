@@ -177,8 +177,8 @@ class StockController extends Controller {
         
         $db = Yii::app()->db;
         
-        $sql = "SELECT COUNT(asset_id) AS c_num FROM tb_asset WHERE asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน'";
-        
+        //$sql = "SELECT COUNT(asset_id) AS c_num FROM tb_asset WHERE asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน'";
+        $sql = "SELECT COUNT(id) AS c_num FROM tb_approve_division WHERE app_status = '1'";
         
         $data = $db->createCommand($sql)->queryAll();
         
@@ -188,12 +188,14 @@ class StockController extends Controller {
     public function actionConMessage4(){
         $db = Yii::app()->db;
         
-        $sql = "SELECT * FROM tb_asset,tb_institution,tb_division "
+        $sql = "SELECT * FROM tb_asset,tb_institution,tb_division,tb_approve_division "
                 . "WHERE tb_division.division_id = tb_division_division_id "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND asset = 1 "
                 . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
-                . "ORDER BY asset_id DESC "
+                . "AND app_status = '1' "
+                . "AND tb_approve_division.asset_id = tb_asset.asset_id "
+                . "ORDER BY tb_asset.asset_id DESC "
                 . "LIMIT 0,3";
         
         
@@ -229,12 +231,12 @@ class StockController extends Controller {
         
         $db = Yii::app()->db;
         
-        $sql = "SELECT COUNT(asset_id) AS c_num FROM tb_asset,tb_institution,tb_division "
-                . "WHERE asset = 1 AND tb_status_status = 'ขอขึ้นทะเบียน' "
+        $sql = "SELECT COUNT(tb_asset.asset_id) AS c_num FROM tb_asset,tb_institution,tb_division "
+                . "WHERE asset = 1 "
+                . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND tb_division.division_id = tb_division_division_id "
                 . "AND tb_division.division_id =" . $load->loadDivisionID() . " ";
-        
         
         $data = $db->createCommand($sql)->queryAll();
         
@@ -247,13 +249,13 @@ class StockController extends Controller {
         
         $db = Yii::app()->db;
         
-        $sql = "SELECT * FROM tb_asset,tb_institution,tb_division "
+        $sql = "SELECT *,tb_asset.asset_id AS a_id FROM tb_asset,tb_institution,tb_division "
                 . "WHERE tb_division.division_id = tb_division_division_id "
                 . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND asset = 1 "
                 . "AND tb_status_status = 'ขอขึ้นทะเบียน' "
                 . "AND tb_division.division_id =" . $load->loadDivisionID() . " "
-                . "ORDER BY asset_id DESC "
+                . "ORDER BY a_id DESC "
                 . "LIMIT 0,3";
         
         
@@ -261,7 +263,7 @@ class StockController extends Controller {
         
         foreach ($data AS $r){
             echo '<li>';
-            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApproveDivision?assetID='.$r['asset_id'].'">';
+            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApproveDivision?assetID='.$r['a_id'].'">';
             echo    '<div class="message">';
             echo        '<span class="message-sender">';
             echo            'ขอขึ้นทะเบียน';
@@ -296,6 +298,28 @@ class StockController extends Controller {
             $Nfunc->setCookieData('assetID', (60*60*24), $assetID);
             
             $this->render('//Stock/ApproveDivision');
+        }
+    }
+    
+    public function actionApproveDivisionSuccess(){
+        if(isset($_COOKIE['assetID'])){
+            $Nfunc = new NFunc();
+            $load = new LoadData();
+            
+            $assetID = $Nfunc->getCookieData('assetID');
+            
+            $model = new TbApproveDivision();
+            
+            
+            $model->asset_id = $assetID;
+            $model->int_id = $load->loadInstitutionID();
+            $model->app_status = '1';
+            
+            if($model->save()){
+                echo '1';
+            }else {
+                echo 0;
+            }
         }
     }
 }
