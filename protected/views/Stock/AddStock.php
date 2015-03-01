@@ -41,7 +41,7 @@ $Nfunc = new NFunc();
             </li>
             <li>
                 <span class="step">7</span>
-                <a href="#tabRegiter" data-toggle="tab">รายงาน</a>
+                <a href="#tabRegiter" data-toggle="tab">ตรวจสอบข้อมูล</a>
                 <span class="chevron"></span>
             </li>
 
