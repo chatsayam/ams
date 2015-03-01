@@ -29,6 +29,12 @@ App.controller('mainController', function ($scope, $http) {
             $('#showListDetail').html(data);
         });
     };
+    
+    $scope.editDataRegister = function(){
+        
+        window.location.href = './Register?EDIT=EDIT';
+    };
+    
 
 
 
@@ -423,8 +429,8 @@ App.controller('mainController', function ($scope, $http) {
 
         } else if (LvMyTab === 2) {
             if (idAreaActive === "tabRegiter") {
-                //window.location = "addstockpd44";
-                alert('end');
+                window.location = "../";
+                alert('จบกระบวนการ การแก้ไขคำขอขึ้นทะเบียน');
             } else {
                 checkPageTab(idAreaActive, 'next');
                 $('#mytab .active').next().find('a').tab('show');

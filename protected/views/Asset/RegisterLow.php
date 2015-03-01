@@ -266,8 +266,12 @@ $Nfunc = new NFunc();
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label" for="gfmis_code">เลขรหัสครุภัณฑ์</label>
-                        <input ng-model="st.asset_code" class="form-control" type="text" required="true" name="gfmis_code" id="gfmis_code">
+                        <label class="control-label" for="asset_code">เลขรหัสครุภัณฑ์</label>
+                        <!--<input class="form-control" type="text" >-->
+                        <div class="input-group">
+                            <input type="text" ng-model="sid.asset_code" disabled="true" name="asset_code" id="asset_code" class="form-control">
+                            <a href="#" ng-click="create_id()" class="input-group-addon">ID</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">

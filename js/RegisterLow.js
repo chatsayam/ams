@@ -17,6 +17,18 @@ App.controller('mainController', function ($scope, $http) {
 
     };
     
+    $scope.create_id = function () {
+        $.post('./CreateAssetID', {
+            nt_id : $('#type_asset_id').val(),
+            year : $('#year_cost').val()
+        }, function (data) {
+            $('#asset_code').val(data);
+            
+            //tdata = "{\"asset_code\":\"" + data + "\"}";
+            //$scope.sid = JSON.parse(tdata);
+        });
+    };
+    
     $scope.selectVendor = function () {
         $.post('./SelectVendors', {sup: $('#vendors_id').val()}, function (data) {
             $('#listVendors').html(data);
@@ -44,11 +56,15 @@ App.controller('mainController', function ($scope, $http) {
                 console.log('s=' + $('#vendors_id').val());
             }
         });
-    };$scope.selectVendor = function () {
+    };
+    
+    /*
+    $scope.selectVendor = function () {
         $.post('./SelectVendors', {sup: $('#vendors_id').val()}, function (data) {
             $('#listVendors').html(data);
         });
     };
+    */
 
     $scope.filVendeor = function () {
         $.post('./FilVendor', {data: $('#vendors_id').val()}, function (data) {
@@ -96,7 +112,8 @@ App.controller('mainController', function ($scope, $http) {
     function saveRegisterLow(){
         $.post('./SaveRegisterLow', {
             data: $scope.st,
-            fp: $scope.fp
+            fp: $scope.fp,
+            a_id : $('#asset_code').val()
         }, function (data) {
             
         });
@@ -171,8 +188,8 @@ App.controller('mainController', function ($scope, $http) {
 
         } else if (LvMyTab === 2) {
             if (idAreaActive === "tabRegiter") {
-                //window.location = "addstockpd44";
-                alert('end');
+                window.location = "../";
+                //alert('end');
             } else {
                 checkPageTab(idAreaActive, 'next');
                 $('#mytab .active').next().find('a').tab('show');

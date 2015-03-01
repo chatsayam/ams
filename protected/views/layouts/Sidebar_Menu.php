@@ -176,7 +176,8 @@
             <span class="menu-text"> รายการแจ้งเตือน </span>
         </a>
     </li>
-    <!--setting-->
+    
+    <!--setting
     <li>
         <a href="#" class="menu-dropdown">
             <i class="menu-icon fa fa-gears"></i>
@@ -241,6 +242,9 @@
 
         </ul>
     </li>
+    
+    -->
+    
     <li>
         <a href="<?=Yii::app()->createUrl("site/logout")?>">
             <i class="menu-icon glyphicon glyphicon-fire themesecondary"></i>

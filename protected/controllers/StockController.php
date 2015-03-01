@@ -261,7 +261,7 @@ class StockController extends Controller {
         
         foreach ($data AS $r){
             echo '<li>';
-            echo '<a href="#">';
+            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApproveDivision?assetID='.$r['asset_id'].'">';
             echo    '<div class="message">';
             echo        '<span class="message-sender">';
             echo            'ขอขึ้นทะเบียน';
@@ -285,5 +285,17 @@ class StockController extends Controller {
 
     public function actionTan(){
         
+    }
+    
+    public function actionApproveDivision(){
+        if($_GET){
+            $Nfunc = new NFunc();
+            
+            $assetID = $_GET['assetID'];
+            
+            $Nfunc->setCookieData('assetID', (60*60*24), $assetID);
+            
+            $this->render('//Stock/ApproveDivision');
+        }
     }
 }

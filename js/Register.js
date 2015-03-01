@@ -33,6 +33,11 @@ App.controller('mainController', function ($scope, $http) {
         });
     };
     
+    $scope.editDataRegister = function(){
+        
+        window.location.href = './Register?EDIT=EDIT';
+    };
+    
 
 
     $scope.openReport = function () {

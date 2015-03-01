@@ -494,6 +494,7 @@ $Nfunc = new NFunc();
                     <button id="vReport" ng-click="openReport()" class="btn btn-info" name="yt0" type="button"><span class="glyphicon glyphicon-eye-open"></span> เรียกดู</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-info" ng-click="exportPDF()" type="button"><span class="glyphicon glyphicon-file"></span> ส่งออก PDF</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-info" ng-click="showDetail()" data-toggle="modal" data-target=".bs-example-modal-lg" type="button"><span class="glyphicon glyphicon-list-alt"></span> รายละเอียดเพิ่มเติม</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-info" ng-click="editDataRegister()" type="button"><span class="glyphicon glyphicon-pencil"></span> แก้ไขข้อมูล</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
             <hr>

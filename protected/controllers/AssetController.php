@@ -1,6 +1,16 @@
 <?php
 
 class AssetController extends Controller {
+    
+    public function actionCreateAssetID(){
+        if(isset($_POST)){
+            $ams = new AMS();
+            
+            echo $ams->createAssetIDLow($_POST['nt_id'], $_POST['year']);
+        }
+        
+        echo '';
+    }
 
     public function actionManageRegister() {
 
@@ -349,6 +359,7 @@ class AssetController extends Controller {
         if (isset($_POST)) {
             $stock = $_POST['data'];
             $vandor = $_POST['fp'];
+            $asset_code = $_POST['a_id'];
 
             $Nfunc = new NFunc();
 
@@ -366,6 +377,8 @@ class AssetController extends Controller {
             $modelAsset->asset = 2;
 
             $modelStock->add_date = $dateNow;
+            
+            $modelStock->asset_code = $asset_code;
 
             $dataUser = TbUser::model()->findByPk(Yii::app()->user->id);
 
