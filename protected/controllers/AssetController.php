@@ -42,7 +42,7 @@ class AssetController extends Controller {
                 . "ORDER BY asset_id DESC";
 
         if (isset($_POST)) {
-            if ($_POST['ta']) {
+            if (isset($_POST['ta'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -52,7 +52,7 @@ class AssetController extends Controller {
                         . "ORDER BY asset_id DESC";
             }
 
-            if ($_POST['nt']) {
+            if (isset($_POST['nt'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -62,7 +62,7 @@ class AssetController extends Controller {
                         . "ORDER BY asset_id DESC";
             }
 
-            if ($_POST['tta']) {
+            if (isset($_POST['tta'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -73,7 +73,7 @@ class AssetController extends Controller {
                         . "ORDER BY asset_id DESC";
             }
 
-            if ($_POST['nnt']) {
+            if (isset($_POST['nnt'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -84,7 +84,7 @@ class AssetController extends Controller {
                         . "ORDER BY asset_id DESC";
             }
 
-            if ($_POST['di']) {
+            if (isset($_POST['di'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_institution,tb_division WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -96,7 +96,7 @@ class AssetController extends Controller {
                         . "ORDER BY asset_id DESC";
             }
 
-            if ($_POST['ins']) {
+            if (isset($_POST['ins'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset WHERE " . $wh
                         . " tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -981,7 +981,7 @@ class AssetController extends Controller {
                 . "ORDER BY stock_id DESC";
 
         if (isset($_POST)) {
-            if ($_POST['ta']) {
+            if (isset($_POST['ta'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -991,7 +991,7 @@ class AssetController extends Controller {
                         . "ORDER BY stock_id DESC";
             }
 
-            if ($_POST['nt']) {
+            if (isset($_POST['nt'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -1001,7 +1001,7 @@ class AssetController extends Controller {
                         . "ORDER BY stock_id DESC";
             }
 
-            if ($_POST['tta']) {
+            if (isset($_POST['tta'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -1012,7 +1012,7 @@ class AssetController extends Controller {
                         . "ORDER BY stock_id DESC";
             }
 
-            if ($_POST['nnt']) {
+            if (isset($_POST['nnt'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -1023,7 +1023,7 @@ class AssetController extends Controller {
                         . "ORDER BY stock_id DESC";
             }
 
-            if ($_POST['di']) {
+            if (isset($_POST['di'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks,tb_institution,tb_division WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
@@ -1035,7 +1035,7 @@ class AssetController extends Controller {
                         . "ORDER BY stock_id DESC";
             }
 
-            if ($_POST['ins']) {
+            if (isset($_POST['ins'])) {
                 $sql = "SELECT * FROM tb_asset,tb_nature_asset,tb_type_asset,tb_stocks WHERE "
                         . "tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                         . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "

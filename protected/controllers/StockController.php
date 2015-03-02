@@ -191,8 +191,9 @@ class StockController extends Controller {
         
         $db = Yii::app()->db;
         
-        $sql = "SELECT *,tb_asset.asset_id AS a_id FROM tb_asset,tb_nature_asset,tb_type_asset "
+        $sql = "SELECT *,tb_asset.asset_id AS a_id FROM tb_asset,tb_nature_asset,tb_type_asset,tb_division,tb_institution "
                 . "WHERE tb_division.division_id = tb_division_division_id "
+                . "AND tb_institution_institution_id = tb_institution.institution_id "
                 . "AND tb_nature_asset_nature_asset_id = tb_nature_asset.nature_asset_id "
                 . "AND tb_nature_asset.tb_type_asset_type_asset_id = tb_type_asset.type_asset_id "
                 . "AND asset = 1 "
@@ -206,7 +207,7 @@ class StockController extends Controller {
         
         foreach ($data AS $r){
             echo '<li>';
-            echo '<a href="'.Yii::app()->homeUrl.'/Stock/ApproveDivision?assetID='.$r['a_id'].'">';
+            echo '<a href="'.Yii::app()->homeUrl.'/Asset/ShowListStock">';
             echo    '<div class="message">';
             echo        '<span class="message-sender">';
             echo            'ขึ้นทะเบียนสำเร็จ';

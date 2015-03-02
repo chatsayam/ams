@@ -244,7 +244,7 @@
                                     <br />
                                     หมายเลขเครื่อง &nbsp;<?=$model[0]['machine_code']?>
                                    
-                                    <br />รับประกัน&nbsp; <?=$model[0]['warrenty']?>&nbsp; ปี
+                                    <br />รับประกัน&nbsp; -&nbsp; ปี
                                 </td>
                                 <td align="center" valign="top" class="htb59">
                                     <?=$model[0]['amount']?>

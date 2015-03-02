@@ -176,6 +176,6 @@
 
 </div>
 
-
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/chosen.jquery.js', CClientScript::POS_END); ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/ShowList.js', CClientScript::POS_END); ?>
 

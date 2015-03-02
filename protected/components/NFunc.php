@@ -47,9 +47,13 @@ class NFunc {
     }
 
     function convertSQLToDate($date) {
-        $tmpDate = explode("-", $date);
+        if(!empty($date)){
+            $tmpDate = explode("-", $date);
 
-        return substr($tmpDate[2], 0, 2) . '/' . $tmpDate[1] . '/' . $tmpDate[0];
+            return substr($tmpDate[2], 0, 2) . '/' . $tmpDate[1] . '/' . $tmpDate[0];
+        }else {
+            return '';
+        }
     }
 
     function convertSQLToDateBH($date) {

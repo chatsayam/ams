@@ -3,20 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/httpserver/Project/project_end/protected/components/LoadData.php</file>
-            <file>file:/httpserver/Project/project_end/protected/views/layouts/main.php</file>
-            <file>file:/httpserver/Project/project_end/assets/layout/assets/css/noom-theme.min.css</file>
-            <file>file:/httpserver/Project/project_end/js/main-script4.js</file>
-            <file>file:/httpserver/Project/project_end/protected/views/layouts/Messages.php</file>
-            <file>file:/httpserver/Project/project_end/protected/controllers/StockController.php</file>
-            <file>file:/httpserver/Project/project_end/protected/components/WebUser.php</file>
-            <file>file:/httpserver/Project/project_end/js/RequestStock.js</file>
-            <file>file:/httpserver/Project/project_end/protected/views/layouts/Sidebar_Menu_Level2.php</file>
-            <file>file:/httpserver/Project/project_end/protected/views/stock/RequestStock.php</file>
-            <file>file:/httpserver/Project/project_end/js/main-script2.js</file>
-            <file>file:/httpserver/Project/project_end/protected/controllers/AssetController.php</file>
-            <file>file:/httpserver/Project/project_end/protected/views/layouts/ran_main.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
