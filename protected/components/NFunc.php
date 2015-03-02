@@ -90,13 +90,22 @@ class NFunc {
             "11" => "พฤศจิกายน",
             "12" => "ธันวาคม"
         );
+        
+        //return $date.'2s';
+        
+        if(!empty($date)){
 
-        $tmpDate = explode("/", $date);
+            $tmpDate = explode("/", $date);
 
-        if ($tmpDate[1] < 10)
-            $tmpDate[1] = substr($tmpDate[1], 1, 1);
+            if ($tmpDate[1] < 10){
+                $tmpDate[1] = substr($tmpDate[1], 1, 1);
+            }
 
-        return " $tmpDate[0] " . $thai_month[$tmpDate[1]] . " $tmpDate[2]";
+            return " $tmpDate[0] " . $thai_month[$tmpDate[1]] . " $tmpDate[2]";
+
+        }else {
+            return '';
+        }
     }
 
     function getDateThaiBH($date) {

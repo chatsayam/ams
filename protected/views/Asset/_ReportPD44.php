@@ -159,7 +159,7 @@
                     }
                     ?>
                     <br />
-                    รับประกัน&nbsp;<?= number_format($model[0]['warrenty'], 2) ?>&nbsp;ปี&nbsp;
+                    รับประกัน&nbsp;<?= $model[0]['warrenty']?>&nbsp;ปี&nbsp;
                     (กรรมการตรวจรับ&nbsp;<?= $Nfunc->getDateThai($Nfunc->convertSQLToDate($model[0]['date_examine'])) ?>&nbsp;)<br />
                     SPEC.เลขที่&nbsp;<?= $model[0]['specification_code'] ?><br />
                 </td>
