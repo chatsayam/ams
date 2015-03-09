@@ -73,7 +73,7 @@ $Nfunc = new NFunc();
                                                 
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-success editListPro" data-id="<?=$r['asset_id']?>" title="แก้ไขคำขอ"><i class="glyphicon glyphicon-edit"></i></button>
+                                                <a class="btn btn-success editListPro" href="<?=Yii::app()->homeUrl.'/Stock/ApproveManage?assetID='.$r['asset_id']?>" data-id="<?=$r['asset_id']?>" title="แก้ไขคำขอ"><i class="glyphicon glyphicon-edit"></i></a>
                                                 <button type="button" class="btn btn-danger deleteListPro" data-id="<?=$r['asset_id']?>" title="ยกเลิกคำขอ"><i class="glyphicon glyphicon-remove"></i></button>
                                             </td>
                                         </tr>

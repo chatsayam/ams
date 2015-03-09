@@ -1,15 +1,11 @@
-<div  ng-controller="mainController">
-    <div class="row">
-        <div class="col-lg-12">
-            <h4 class="page-header"><i class="glyphicon glyphicon-hand-right"></i> <span id="topicPd44Plus">รายงานประจำปีครุภัณฑ์ ชำรุด</span></h4>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <?php
-    $Nfunc = new NFunc;
-    ?>
+<!-- Page Breadcrumb -->
+<?php
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'รายงานประจำปีครุภัณฑ์ ชำรุด'));
+$Nfunc = new NFunc();
+?>
+<div class="page-body" ng-controller="mainController">
 
-    <div class="content">
+    <div class="well">
         <div class="row">
             <div class="col-md-3">
 

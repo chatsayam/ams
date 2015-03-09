@@ -366,6 +366,27 @@ class StockController extends Controller {
         }
     }
     
+    public function actionApproveManage(){
+        if($_GET){
+            $Nfunc = new NFunc();
+            
+            $assetID = $_GET['assetID'];
+            
+            $Nfunc->setCookieData('assetID', (60*60*24), $assetID);
+            
+            $this->render('//Stock/ApproveManage');
+        }
+    }
+    
+    public function actionDeleteAsset(){
+        if(isset($_POST)){
+            $model = TbAsset::model()->deleteByPk($_POST['id']);
+            
+            echo $model;
+        }
+    }
+
+
     public function actionApproveDivisionSuccess(){
         if(isset($_COOKIE['assetID'])){
             $Nfunc = new NFunc();

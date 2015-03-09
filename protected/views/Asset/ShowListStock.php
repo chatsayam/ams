@@ -1,15 +1,13 @@
-<div  ng-controller="mainController">
-    <div class="row">
-        <div class="col-lg-12">
-            <h4 class="page-header"><i class="glyphicon glyphicon-hand-right"></i> <span id="topicPd44Plus">รายการพัสดุ</span></h4>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
+<!-- Page Breadcrumb -->
+<?php
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'รายการสินทรัพย์'));
+$Nfunc = new NFunc();
+?>
+<div class="page-body" ng-controller="mainController">
+
 
     <div class="content">
-        <div class="well">
 
-            <br>
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
@@ -91,7 +89,6 @@
                     </div>
                 </div>        
             </div>
-        </div>
 
 
     </div>

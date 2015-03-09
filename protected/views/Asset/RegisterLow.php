@@ -1,6 +1,6 @@
 <!-- Page Breadcrumb -->
 <?php
-$this->renderPartial("//Layouts/Breadcrumb", array('pageTitle' => 'บันทึกข้อมูลครุภัณฑ์ต่ำกว่าเกณฑ์'));
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'บันทึกข้อมูลครุภัณฑ์ต่ำกว่าเกณฑ์'));
 $Nfunc = new NFunc();
 ?>
 

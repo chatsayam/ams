@@ -1,10 +1,11 @@
-<div ng-controller="mainController">
+<!-- Page Breadcrumb -->
+<?php
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'ประวัติการซ่อม'));
+$Nfunc = new NFunc();
+?>
+
+<div class="page-body" ng-controller="mainController">
     <style>.datepicker { z-index: 1151 !important;  }</style>
-    <div class="row">
-        <div class="col-lg-12">
-            <h4 class="page-header"><i class="glyphicon glyphicon-hand-right"></i> ประวัติการซ่อม</h4>
-        </div>
-    </div>
     <input type="hidden" id="idStock" value="<?php echo $id; ?>">
     <div class="row">
         <div class="col-md-4">
@@ -61,7 +62,7 @@
                             <div class="form-group">
                                 <label for="date_repair">วันที่ซ่อม</label>
                                 <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="th" data-date-autoclose="true">
-                                    <input class="form-control" type="text" required="true" id="date_repair">
+                                    <input class="form-control rep" type="text" required="true" id="date_repair">
                                     <span class="input-group-addon">
                                         <i class="glyphicon glyphicon-th"></i>
                                     </span>
@@ -71,7 +72,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="price_repair">ค่าใช้จ่ายในการซ่อม</label>
-                                <input class="form-control" check-exp="notnull" placeholder="บาท" type="text" name="price_repair" id="price_repair">     
+                                <input class="form-control rep" check-exp="notnull" placeholder="บาท" type="text" name="price_repair" id="price_repair">     
                             </div>
                         </div>
 
@@ -80,7 +81,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="repair">รายละเอียดการซ่อม</label>
-                                <textarea multiple="3" class="form-control" check-exp="notnull" placeholder="รายละเอียดเพิ่มเติม" type="text" name="repair" id="repair"> </textarea>               
+                                <textarea multiple="3" class="form-control rep" check-exp="notnull" placeholder="รายละเอียดเพิ่มเติม" type="text" name="repair" id="repair"> </textarea>               
                             </div>
                         </div>
                     </div>
@@ -88,7 +89,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="repair_orther">หมายเหตุ</label>
-                                <textarea multiple="3" class="form-control" check-exp="notnull" placeholder="รายละเอียดเพิ่มเติม" type="text" name="repair_orther" id="repair_orther"> </textarea>               
+                                <textarea multiple="3" class="form-control rep" check-exp="notnull" placeholder="รายละเอียดเพิ่มเติม" type="text" name="repair_orther" id="repair_orther"> </textarea>               
                             </div>
                         </div>
                     </div>
@@ -97,7 +98,7 @@
                             <form method="post" id="frm_file_repair" enctype="multipart/form-data" action="#">
                                 <div class="form-group">
                                     <label for="s_durableCode">ใบส่งของ/ใบกำกับภาษี</label>
-                                    <input id="file_repair" name="file_repair" type="file">
+                                    <input class="rep" id="file_repair" name="file_repair" type="file">
                                 </div>
                             </form>
                             <input id="file_repair_invoice" type="hidden" value="">

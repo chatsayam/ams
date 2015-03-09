@@ -1,10 +1,9 @@
-<div ng-controller="mainController">
-    <style>.datepicker { z-index: 1151 !important;  }</style>
-    <div class="row">
-        <div class="col-lg-12">
-            <h4 class="page-header"><i class="glyphicon glyphicon-hand-right"></i> ขอ โอน/ย้าย ครุภัณฑ์</h4>
-        </div>
-    </div>
+<!-- Page Breadcrumb -->
+<?php
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'ขอ โอน/ย้าย ครุภัณฑ์'));
+$Nfunc = new NFunc();
+?>
+<div class="page-body" ng-controller="mainController">
     <div class="row">
         <div class="col-md-3 col-md-offset-9">
             <div class="form-group">
@@ -99,4 +98,8 @@
     </div>
 
 </div>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/transfer/Request.js', CClientScript::POS_END); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/assets/layout/assets/js/chosen.jquery.js', CClientScript::POS_END); ?>
+
+<?php 
+
+Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/transfer/Request.js', CClientScript::POS_END); 

@@ -1,10 +1,9 @@
-<div ng-controller="mainController">
-    <style>.datepicker { z-index: 1151 !important;  }</style>
-    <div class="row">
-        <div class="col-lg-12">
-            <h4 class="page-header"><i class="glyphicon glyphicon-hand-right"></i> ประวัติการซ่อม</h4>
-        </div>
-    </div>
+<!-- Page Breadcrumb -->
+<?php
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'ประวัติการซ่อม'));
+$Nfunc = new NFunc();
+?>
+<div class="page-body" ng-controller="mainController">
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">

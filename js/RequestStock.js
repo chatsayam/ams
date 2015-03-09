@@ -11,6 +11,18 @@ App.controller('mainController', function ($scope, $http) {
         });
     });
     
+    $('#bodyDataTable').on('click','.deleteListPro',function(){
+        if(confirm('ยืนยันการยกเลิกคำขอขึ้นทะเบียน')){
+            //alert($(this).attr('data-id'));
+            $.post('./DeleteAsset',{id:$(this).attr('data-id')},function(data){
+                if(data === '1'){
+                    window.location.href = './RequestStock';
+                }
+            });
+        }
+        
+    });
+    
     $('#type_asset_id').change(function () {
         $.post('./RequestStockList', {
             nt_id: $('#type_asset_id').val()

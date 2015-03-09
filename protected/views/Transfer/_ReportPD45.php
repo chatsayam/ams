@@ -27,7 +27,7 @@
         <img src="<?= Yii::app()->baseUrl ?>/images/krut.jpg" width="80" height="72" />
     </td>
     <td width="307" align="right" valign="top" >
-        <strong class="style3">พด.45</strong>
+        <strong class="style3">พด.44</strong>
         <br />
     </td>
 </tr>
@@ -36,7 +36,7 @@
         <span class="style4"> <?= $model[0]['type_cost'] ?> ประจำปี <?= $model[0]['year_cost'] ?></span>
     </td>
     <td align="center" >
-        <span class="style3">ใบจ่ายยืมพัสดุ</span>
+        <span class="style3">ใบรับสิ่งของ</span>
     </td>
     <td align="left" >
         <label class="ind2">

@@ -1,11 +1,10 @@
 <!-- Page Breadcrumb -->
 <?php
-$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'จัดการคณะกรรมพิจารณา'));
+$this->renderPartial("//layouts/Breadcrumb", array('pageTitle' => 'จัดการการจำหน่ายครุภัณฑ์'));
 $Nfunc = new NFunc();
 ?>
 <div class="page-body" ng-controller="mainController">
-    <style>.datepicker { z-index: 1151 !important;  }</style>
-    <p><button id="bAddModal" type="button" class="btn btn-success">เพิ่มคณะกรรมพิจารณา</button></p>
+
     <div class="row">
         <div class="well" style="overflow-y:hidden;">
             <table class="table table-hover">
@@ -14,7 +13,7 @@ $Nfunc = new NFunc();
                         <th style="vertical-align: middle;">#</th>
                         <th style="vertical-align: middle;">เลขที่คำสั่งแต่งตั้ง</th>
                         <th style="vertical-align: middle;">รายชื่อคณะกรรมการ</th>
-                        
+                        <th style="vertical-align: middle;">จัดการ</th>
                     </tr>
                 </thead>
                 <tbody id="ShowList"></tbody>
@@ -92,4 +91,4 @@ $Nfunc = new NFunc();
         </div>
     </div>
 </div>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/distribute/Manage.js', CClientScript::POS_END); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/distribute/ManageSell.js', CClientScript::POS_END); ?>

@@ -11,6 +11,11 @@ App.controller('mainController', function ($scope, $http) {
             $('#showListDetail').html(data);
         });
     };
+    
+    $scope.editDataRegister = function(){
+        
+        window.location.href = './../Asset/Register?EDIT=EDIT';
+    };
 
     $scope.openReport = function () {
         window.open("./../Asset/ReportOnePagePD44", "myWindow", "status = 1, height = 650, width = 1024, resizable = 0");

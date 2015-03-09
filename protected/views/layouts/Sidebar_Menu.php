@@ -48,30 +48,30 @@
 
         <ul class="submenu">
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?= Yii::app()->createUrl("Transfer/Request") ?>">
                     <span class="menu-text">ร้องขอครุภัณฑ์</span>
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Transfer/Approve")?>">
                     <span class="menu-text">โอนย้ายครุภัณฑ์</span>
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Transfer/List")?>">
                     <span class="menu-text">รายการโอนย้ายครุภัณฑ์</span>
                 </a>
             </li>
         </ul>
     </li>
-
+<!--
     <li>
         <a href="#" class="menu-dropdown">
             <i class="menu-icon fa fa-retweet"></i>
             <span class="menu-text"> จัดการจ่ายยืมครุภัณฑ์ </span>
             <i class="menu-expand"></i>
         </a>
-
+-->
         <ul class="submenu">
             <li>
                 <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
@@ -95,15 +95,15 @@
 
         <ul class="submenu">
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?= Yii::app()->createUrl("Repair/List") ?>">
                     <span class="menu-text">บันทึกประวัติการซ่อม</span>
                 </a>
             </li>
-            <li>
+       <!--     <li>
                 <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
                     <span class="menu-text">รายการประวัติการซ่อม</span>
                 </a>
-            </li>
+            </li>-->
         </ul>
     </li>
     
@@ -116,22 +116,22 @@
 
         <ul class="submenu">
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Distribute/Manage")?>">
                     <span class="menu-text">บันทึกการตรวจสอบ</span>
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Report/ReportSell")?>">
                     <span class="menu-text">รายการขออนุมัติจำหน่าย</span>
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Distribute/ManageSell")?>">
                     <span class="menu-text">บันทึกรายการจำหน่าย</span>
                 </a>
             </li>
             <li>
-                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
+                <a href="<?=Yii::app()->createUrl("Report/ReportSell")?>">
                     <span class="menu-text">รายการครุภัณฑ์จำหน่าย</span>
                 </a>
             </li>
@@ -148,22 +148,22 @@
 
         <ul class="submenu">
             <li>
-                <a href="tables-simple.html">
+                <a href="<?=Yii::app()->createUrl("Asset/ShowListStock")?>">
                     <span class="menu-text">รายงานประจำปี</span>
                 </a>
             </li>
             <li>
-                <a href="tables-data.html">
+                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
                     <span class="menu-text">รายงานการคลาดเคลื่อนค่าเสื่อมราคา</span>
                 </a>
             </li>
             <li>
-                <a href="tables-data.html">
+                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
                     <span class="menu-text"></span>
                 </a>
             </li>
             <li>
-                <a href="tables-data.html">
+                <a href="<?=Yii::app()->createUrl("Stock/AddStock")?>">
                     <span class="menu-text">รายงานคำของบประมาณ</span>
                 </a>
             </li>
@@ -171,7 +171,7 @@
     </li>
     <!--Notification-->
     <li>
-        <a href="profile.html">
+        <a href="Notification.html">
             <i class="menu-icon fa fa-envelope-o"></i>
             <span class="menu-text"> รายการแจ้งเตือน </span>
         </a>
